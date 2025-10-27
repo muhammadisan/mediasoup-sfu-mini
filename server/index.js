@@ -59,13 +59,15 @@ io.on("connection", (socket) => {
 
       transport.on("icestatechange", (state) => console.log(`[transport] ${direction} icestate:`, state));
 
-      ack({ ok: true, params: {
-        id: transport.id,
-        iceParameters: transport.iceParameters,
-        iceCandidates: transport.iceCandidates,
-        dtlsParameters: transport.dtlsParameters,
-        sctpParameters: transport.sctpParameters ?? undefined,
-      }});
+      ack({
+        ok: true, params: {
+          id: transport.id,
+          iceParameters: transport.iceParameters,
+          iceCandidates: transport.iceCandidates,
+          dtlsParameters: transport.dtlsParameters,
+          sctpParameters: transport.sctpParameters ?? undefined,
+        }
+      });
 
       // tag
       transport.appData = { direction, peerId: socket.id };
@@ -146,14 +148,16 @@ io.on("connection", (socket) => {
         socket.emit("producerClosed", { producerId });
       });
 
-      ack({ ok: true, params: {
-        id: consumer.id,
-        kind: consumer.kind,
-        rtpParameters: consumer.rtpParameters,
-        producerId,
-        peerId: producerInfo.peerId,
-        name: producerInfo.name,
-      }});
+      ack({
+        ok: true, params: {
+          id: consumer.id,
+          kind: consumer.kind,
+          rtpParameters: consumer.rtpParameters,
+          producerId,
+          peerId: producerInfo.peerId,
+          name: producerInfo.name,
+        }
+      });
     } catch (e) { ack({ ok: false, error: String(e) }); }
   });
 

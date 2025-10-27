@@ -132,7 +132,7 @@ export default function App() {
       <div className="grid">
         <VideoTile stream={localStream} label={`${name} (You)`} muted isMicMuted={micMuted} isCamOff={camOff} />
         {remote.map(([peerId, stream]) => (
-          <VideoTile key={peerId} stream={stream} label={`Peer ${peerId.slice(0,4)}…`} />
+          <VideoTile key={peerId} stream={stream} label={`Peer ${peerId.slice(0, 4)}…`} />
         ))}
       </div>
 

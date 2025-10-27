@@ -7,7 +7,7 @@ export default function VideoTile({ stream, label, muted, isMicMuted, isCamOff }
     if (ref.current) {
       if (stream) {
         ref.current.srcObject = stream;
-        ref.current.play().catch(() => {});
+        ref.current.play().catch(() => { });
       } else {
         (ref.current as any).srcObject = null;
       }

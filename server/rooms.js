@@ -12,7 +12,7 @@ export function removePeer(room, socketId) {
   if (!peer) return;
   // Close transports and their children
   for (const t of peer.transports) {
-    try { t.close(); } catch {}
+    try { t.close(); } catch { }
   }
   // Remove their producers
   const toDelete = [];
