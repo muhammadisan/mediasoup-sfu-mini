@@ -1,0 +1,57 @@
+# ===== Node / monorepo-ish =====
+node_modules/
+**/node_modules/
+
+# Build output
+dist/
+build/
+**/dist/
+**/build/
+
+# Vite cache (client)
+.vite/
+**/.vite/
+node_modules/.vite
+
+# Mediasoup / native build noise (safe to ignore)
+*.dmp
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Env & secrets (server ANNOUNCED_IP, etc)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc caches
+.eslintcache
+.stylelintcache
+.parcel-cache/
+.cache/
+.tmp/
+temp/
+tmp/
